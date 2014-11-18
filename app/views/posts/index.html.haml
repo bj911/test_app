@@ -1,0 +1,31 @@
+= form_for @post do |f|
+  = f.label t("post.new_message"), :id => "post_label"
+  = f.text_field :message
+  = f.hidden_field :message_type, :value => "submit"
+  = f.submit "Create with ajax", :class => "ajax_save button"
+  = f.submit "Create wis js_erb", :class => "js_erb_save button"
+  = f.submit "Create with submit", :class => "button"
+.posts
+  Посты AJAX
+  %br
+  .ajax_posts
+    -@ajax_posts.each do |p|
+      = p.message
+      = p.created_at
+      %br
+.posts
+  Посты JS erb
+  %br
+  .js_erb_posts
+    -@js_erb_posts.each do |p|
+      = p.message
+      = p.created_at
+      %br
+.posts
+  Посты submit
+  %br
+  .submit_posts
+    -@submit_posts.each do |p|
+      = p.message
+      = p.created_at
+      %br
