@@ -1,9 +1,7 @@
 class PostsController < ApplicationController
   def index
     @post = Post.new
-    @ajax_posts = Post.post_by_message_type("ajax")
-    @js_erb_posts = Post.post_by_message_type("js_erb")
-    @submit_posts = Post.post_by_message_type("submit")
+    @posts = Post.all.group_by(&:message_type)
   end
 
   def create

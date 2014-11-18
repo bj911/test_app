@@ -9,7 +9,7 @@
   Посты AJAX
   %br
   .ajax_posts
-    -@ajax_posts.each do |p|
+    -@posts["ajax"].each do |p|
       = p.message
       = p.created_at
       %br
@@ -17,7 +17,7 @@
   Посты JS erb
   %br
   .js_erb_posts
-    -@js_erb_posts.each do |p|
+    -@posts["js_erb"].each do |p|
       = p.message
       = p.created_at
       %br
@@ -25,7 +25,7 @@
   Посты submit
   %br
   .submit_posts
-    -@submit_posts.each do |p|
+    -@posts["submit"].each do |p|
       = p.message
       = p.created_at
       %br
